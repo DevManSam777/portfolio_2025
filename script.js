@@ -130,6 +130,125 @@ function closeMobileMenu() {
     }
 }
 
+// blog functionality
+async function fetchHashnodePosts() {
+    try {
+        const response = await fetch('https://gql.hashnode.com/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                query: `
+                    query GetPublicationPosts($host: String!) {
+                        publication(host: $host) {
+                            title
+                            posts(first: 3) {
+                                edges {
+                                    node {
+                                        title
+                                        brief
+                                        slug
+                                        coverImage {
+                                            url
+                                        }
+                                        publishedAt
+                                        readTimeInMinutes
+                                        tags {
+                                            name
+                                        }
+                                        url
+                                    }
+                                }
+                            }
+                        }
+                    }
+                `,
+                variables: {
+                    host: "blog.devmansam.net" 
+                }
+            })
+        });
+
+        const data = await response.json();
+        console.log('API Response:', data); // debug log
+        
+        if (data.errors) {
+            console.error('GraphQL errors:', data.errors);
+            return;
+        }
+        
+        const posts = data.data?.publication?.posts?.edges || [];
+        
+        if (posts.length > 0) {
+            renderBlogPosts(posts.map(edge => edge.node)); // extract node from edges
+        }
+    } catch (error) {
+        console.error('Error fetching blog posts:', error);
+        // keep the static placeholder posts if API fails
+    }
+}
+
+function renderBlogPosts(posts) {
+    const blogGrid = document.querySelector('.blog-grid');
+    if (!blogGrid) return;
+
+    blogGrid.innerHTML = posts.map(post => {
+        const date = new Date(post.publishedAt).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+        });
+
+        const tags = post.tags.slice(0, 3).map(tag => 
+            `<span class="blog-tag">${tag.name}</span>`
+        ).join('');
+
+        return `
+            <a href="${post.url}" target="_blank" class="blog-card">
+                <div class="blog-image">
+                    ${post.coverImage?.url ? 
+                        `<img src="${post.coverImage.url}" alt="${post.title}" />` :
+                        '<i class="fas fa-code"></i>'
+                    }
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <div class="blog-date">
+                            <i class="fas fa-calendar"></i>
+                            <span>${date}</span>
+                        </div>
+                        <div class="blog-read-time">
+                            <i class="fas fa-clock"></i>
+                            <span>${post.readTimeInMinutes} min read</span>
+                        </div>
+                    </div>
+                    <h3>${post.title}</h3>
+                    <p class="blog-excerpt">${post.brief}</p>
+                    <div class="blog-tags">
+                        ${tags}
+                    </div>
+                </div>
+            </a>
+        `;
+    }).join('');
+}
+
+// make blog cards clickable (for static version)
+function initializeBlogCards() {
+    const blogCards = document.querySelectorAll('.blog-card');
+    blogCards.forEach(card => {
+        // add click handler for static cards that don't have hrefs
+        if (!card.href) {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', () => {
+            
+                window.open('https://blog.devmansam.net', '_blank');
+            });
+        }
+    });
+}
+
 // form event handlers
 function initializeFormEventHandlers() {
     document.addEventListener('form-submit', (event) => {
@@ -226,6 +345,12 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeScrollAnimations();
     initializeSystemThemeListener();
     handleWindowResize();
+    
+    // initialize blog functionality
+    initializeBlogCards();
+    
+    // fetch live blog posts from Hashnode
+    fetchHashnodePosts();
     
     // set dynamic copyright year
     document.getElementById('current-year').textContent = new Date().getFullYear();
