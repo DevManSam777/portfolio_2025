@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Samir Shuman - Full Stack Developer</title>
-    <link rel="icon" href="assets/coding_icon.png">
+    <link rel="icon" href="assets/coding_icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,6 +16,10 @@
       src="https://raw.githack.com/DevManSam777/web_inquiry_form/main/web-inquiry-form.js"
       defer
     ></script>
+    <script
+      src="https://raw.githack.com/DevManSam777/custom-cursor/main/custom-cursor.js"
+      defer
+    ></script>
     <script src="script.js" defer></script>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -23,6 +27,14 @@
     />
   </head>
   <body>
+   <!-- remove the style and custom-cursor elements if you want to use the regular cursor--> 
+    <style>
+      body {
+        cursor: none;
+      }
+    </style>
+    <custom-cursor></custom-cursor>
+    
     <!-- Header -->
     <header class="header">
       <nav class="nav">
@@ -297,9 +309,13 @@
         <div class="blog-grid">
           <!-- Blog posts will be dynamically loaded here -->
         </div>
-        
+
         <div class="blog-cta">
-          <a href="https://blog.devmansam.net" target="_blank" class="btn btn-primary">
+          <a
+            href="https://blog.devmansam.net"
+            target="_blank"
+            class="btn btn-primary"
+          >
             <i class="fas fa-external-link-alt"></i>
             View All Posts
           </a>
