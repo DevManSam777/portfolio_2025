@@ -750,7 +750,7 @@ h1, h2 {
     font-size: 2rem;
   }
 
-  .section-title h2 {
+  .section-title h2, typewriter-effect {
     font-size: 1.8rem;
   }
 

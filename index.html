@@ -25,16 +25,23 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://raw.githack.com/DevManSam777/typewriter-web-component/main/typewriter-component.js"></script>
   </head>
   <body>
-   <!-- remove the style and custom-cursor elements if you want to use the regular cursor--> 
+    <!-- remove the style and custom-cursor elements if you want to use the regular cursor-->
     <style>
       body {
         cursor: none;
       }
     </style>
     <custom-cursor theme="blue"></custom-cursor>
-    
+
     <!-- Header -->
     <header class="header">
       <nav class="nav">
@@ -324,15 +331,39 @@
     </section>
 
     <!-- Contact Section -->
+
     <section id="contact" class="contact">
+      <typewriter-effect
+        phrases='["Have a project in mind?", "I&apos;d love to hear about it!", "Whether you need a new website", "Web application", "Or just want to chat about technology", "Feel free to reach out."]'
+        font-size="2.5rem"
+        color=""
+        font-family="Nunito"
+        font-weight="bold"
+        style="
+          display: flex;
+          justify-self: center;
+          padding-inline: 3rem;
+          background: linear-gradient(
+            135deg,
+            var(--primary-color),
+            var(--accent-color)
+          );
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+        "
+      >
+      </typewriter-effect>
+
       <div class="container">
         <div class="contact-intro">
-          <h2>Let's Work Together</h2>
-          <p>
+          <!-- <h2>Let's Work Together</h2> -->
+
+          <!-- <p>
             Have a project in mind? I'd love to hear about it! Whether you need
             a new website, web application, or just want to chat about
             technology, feel free to reach out.
-          </p>
+          </p> -->
         </div>
 
         <!-- Comment this out or remove it if you are not using DevManSam777's web inquiry form web component-->
