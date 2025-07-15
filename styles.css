@@ -614,6 +614,10 @@ h1, h2 {
   transform: translateY(-2px);
 }
 
+.blog-header {
+  margin-top: 2rem;
+}
+
 /* Animation */
 @keyframes fadeInUp {
   from {
