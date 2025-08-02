@@ -1,4 +1,3 @@
-/* Reset and Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -565,6 +564,28 @@ h1, h2 {
   margin: 0 auto;
 }
 
+/* Updated Contact Section Styles */
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+.contact-form-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-widgets-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-left: 6rem;
+  align-items: flex-start;
+}
+
 .contact-form-container {
   display: flex;
   justify-content: center;
@@ -633,6 +654,38 @@ h1, h2 {
 .fade-in {
   animation: fadeInUp 0.8s ease forwards;
 }
+
+@media (max-width: 996px) {
+   .contact-widgets-section {
+    margin-left: 3rem;
+   }
+}
+
+/* Responsive Design for Contact Section */
+@media (max-width: 768px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .contact-widgets-section {
+    order: 2;
+    margin-left: 0;
+    align-items: center;
+  }
+  
+  .contact-form-section {
+    order: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-content {
+    gap: 1.5rem;
+  }
+}
+
+/* Dark theme adjustments */
 
 /* Mobile Menu Styles */
 @media (max-width: 768px) {

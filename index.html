@@ -13,9 +13,10 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <script
-      src="https://raw.githack.com/DevManSam777/web_inquiry_form/main/web-inquiry-form.js"
+      src="https://raw.githack.com/DevManSam777/minimalist-contact-form/main/contact-form.js"
       defer
     ></script>
+    <script src="https://raw.githack.com/DevManSam777/weather-widget/main/weather-widget.js" defer></script>
     <script
       src="https://raw.githack.com/DevManSam777/custom-cursor/main/custom-cursor.js"
       defer
@@ -137,7 +138,7 @@
               When I'm not coding, you can find me exploring new web
               technologies, contributing to open source projects, or writing
               about web development. I believe in continuous learning and
-              staying current with the ever-evolving software engineering landscape.
+              staying current with the ever-evolving JavaScript ecosystem.
             </p>
           </div>
         </div>
@@ -351,7 +352,6 @@ speed="5"s
     </section>
 
     <!-- Contact Section -->
-
     <section id="contact" class="contact">
       <typewriter-effect
         phrases='["Project idea?", "Need a website?", "Get in touch!"]'
@@ -376,22 +376,41 @@ speed="5"s
       </typewriter-effect>
 
       <div class="container">
-        <div class="contact-intro">
-          <!-- <h2>Let's Work Together</h2> -->
+        <div class="contact-content">
+          <!-- Left side - Contact Form -->
+          <div class="contact-form-section">
+            <contact-form
+              endpoint="https://www.devleads.site/api/leads"
+              id="contact-form"
+            ></contact-form>
+          </div>
 
-          <!-- <p>
-            Have a project in mind? I'd love to hear about it! Whether you need
-            a new website, web application, or just want to chat about
-            technology, feel free to reach out.
-          </p> -->
-        </div>
+          <!-- Right side - Weather Widget and Spotify Player -->
+          <div class="contact-widgets-section">
+            <!-- Weather Widget -->
+            <weather-widget
+              location="San Francisco, CA"
+              units="F"
+            ></weather-widget>
 
-        <!-- Comment this out or remove it if you are not using DevManSam777's web inquiry form web component-->
-        <div class="contact-form-container">
-          <web-inquiry-form
-            api-url="https://www.devleads.site/api/leads"
-            id="contact-form"
-          ></web-inquiry-form>
+            <!-- Spotify Player -->
+            <iframe 
+              data-testid="embed-iframe" 
+              style="border-radius:12px" 
+              src="https://open.spotify.com/embed/playlist/3yi2ODdpqNoXOWQqVslZr9?utm_source=generator" 
+              width="296" 
+              height="152" 
+              frameBorder="0" 
+              allowfullscreen="" 
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+              >
+            </iframe>
+
+            <div style="width: 300px;">
+              <blockquote class="bluesky-embed" data-bluesky-uri="at://did:plc:bvxbwofcfczxq7jyw5lcoos2/app.bsky.feed.post/3lvfdirfax22n" data-bluesky-cid="bafyreidaljxrbzh4nogrkljnshlvbzh64lka66cf57qwfpoxsdfx6ztxoa" data-bluesky-embed-color-mode="system"><p lang="en">Free my people 🇵🇸✌🏽</p>&mdash; Sam S. (<a href="https://bsky.app/profile/did:plc:bvxbwofcfczxq7jyw5lcoos2?ref_src=embed">@devmansam.net</a>) <a href="https://bsky.app/profile/did:plc:bvxbwofcfczxq7jyw5lcoos2/post/3lvfdirfax22n?ref_src=embed">Aug 1, 2025 at 9:32 PM</a></blockquote>
+              <script async src="https://embed.bsky.app/static/embed.js" charset="utf-8"></script>
+            </div>
+          </div>
         </div>
       </div>
     </section>
