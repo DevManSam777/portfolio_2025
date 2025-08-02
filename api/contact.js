@@ -16,17 +16,26 @@ export default async function handler(req, res) {
   try {
     const formData = req.body;
     
-    // Process your form data here
-    console.log('Received form data:', formData);
-    
-    // You can send emails, save to database, etc.
-    
-    return res.status(200).json({ 
-      message: 'Message sent successfully!',
-      data: formData 
+    // Forward the form data to your DevLeads API
+    const response = await fetch('https://www.devleads.site/api/leads', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData)
     });
+
+    if (response.ok) {
+      const result = await response.json();
+      return res.status(200).json(result);
+    } else {
+      const errorText = await response.text();
+      return res.status(response.status).json({ 
+        message: errorText || 'Failed to submit form' 
+      });
+    }
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Error forwarding to DevLeads:', error);
     return res.status(500).json({ 
       message: 'Internal server error' 
     });
