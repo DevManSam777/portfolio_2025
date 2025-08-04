@@ -81,6 +81,10 @@ html {
   margin: 0 auto;
 }
 
+.icon {
+  width: 50px;
+}
+
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
@@ -224,6 +228,7 @@ html {
 .btn-primary:hover {
   background: var(--secondary-color);
 }
+
 
 /* Section Styles */
 section {
