@@ -1,3 +1,4 @@
+/* Reset and Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -81,11 +82,6 @@ html {
   margin: 0 auto;
 }
 
-.icon {
-  padding-top:10px;
-  width: 40px;
-}
-
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
@@ -138,6 +134,11 @@ html {
   color: var(--text-dark);
   cursor: pointer;
   z-index: 1001;
+}
+
+.icon {
+  height: 40px;
+  padding-top: 5px;
 }
 
 /* Mobile Menu Overlay */
@@ -229,7 +230,6 @@ html {
 .btn-primary:hover {
   background: var(--secondary-color);
 }
-
 
 /* Section Styles */
 section {
@@ -570,28 +570,6 @@ h1, h2 {
   margin: 0 auto;
 }
 
-/* Updated Contact Section Styles */
-.contact-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: start;
-  margin-top: 2rem;
-}
-
-.contact-form-section {
-  display: flex;
-  flex-direction: column;
-}
-
-.contact-widgets-section {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  margin-left: 6rem;
-  align-items: flex-start;
-}
-
 .contact-form-container {
   display: flex;
   justify-content: center;
@@ -661,43 +639,11 @@ h1, h2 {
   animation: fadeInUp 0.8s ease forwards;
 }
 
-@media (max-width: 996px) {
-   .contact-widgets-section {
-    margin-left: 3rem;
-   }
-}
-
-/* Responsive Design for Contact Section */
-@media (max-width: 768px) {
-  .contact-content {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
-  .contact-widgets-section {
-    order: 2;
-    margin-left: 0;
-    align-items: center;
-  }
-  
-  .contact-form-section {
-    order: 1;
-  }
-}
-
-@media (max-width: 480px) {
-  .contact-content {
-    gap: 1.5rem;
-  }
-}
-
-/* Dark theme adjustments */
-
 /* Mobile Menu Styles */
 @media (max-width: 768px) {
   .nav-links {
     position: fixed;
-    top: 73px;
+    top: 80px;
     right: -100%;
     width: 80%;
     max-width: 300px;
@@ -780,7 +726,7 @@ h1, h2 {
   }
 
   .nav {
-    padding: 1rem 1rem 0;
+    padding: 1rem;
   }
 
   .section-title h2 {
