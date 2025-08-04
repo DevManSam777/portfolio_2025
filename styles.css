@@ -697,7 +697,7 @@ h1, h2 {
 @media (max-width: 768px) {
   .nav-links {
     position: fixed;
-    top: 75px;
+    top: 73px;
     right: -100%;
     width: 80%;
     max-width: 300px;
