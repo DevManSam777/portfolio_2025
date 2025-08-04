@@ -547,6 +547,21 @@ h1, h2 {
   margin-top: 3rem;
 }
 
+/* typewriter styles */
+.typewriter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 3rem;
+  margin-bottom: 2rem;
+}
+
+.typewriter-container typewriter-effect {
+  text-align: center;
+  max-width: 100%;
+}
+
 /* Contact Section */
 .contact {
   background: var(--bg-white);
