@@ -6,14 +6,14 @@
 }
 
 :root {
-  /* Light theme colors - softer backgrounds */
+  /* Light theme colors */
   --primary-color: #2563eb;
   --secondary-color: #1e40af;
   --accent-color: #f59e0b;
   --text-dark: #1f2937;
   --text-light: #6b7280;
-  --bg-light: #f3f4f6; /* Softer than bright white */
-  --bg-white: #fafafa; /* Much softer white */
+  --bg-light: #e1ebff; 
+  --bg-white: #fafafa; 
   --border-color: #e5e7eb;
   --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
@@ -121,11 +121,10 @@ html {
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(250, 250, 250, 0.3); 
   backdrop-filter: blur(10px);
   z-index: 1000;
   transition: all 0.3s ease;
-  border-bottom: 1px solid var(--border-color);
+  /* border-bottom: 1px solid var(--border-color); */
 }
 
 [data-theme="dark"] .header {
@@ -156,7 +155,7 @@ html {
 
 .nav-links a {
   text-decoration: none;
-  color: var(--text-dark);
+  color: var(--text-light);
   font-weight: 500;
   transition: color 0.3s ease;
 }
@@ -176,7 +175,7 @@ html {
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  color: var(--text-dark);
+  color: var(--text-light);
 }
 
 .theme-toggle:hover {
@@ -441,7 +440,7 @@ h1, h2 {
 }
 
 .project-card {
-  background: var(--bg-light);
+  background: var(--bg-white);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: var(--shadow);
@@ -740,18 +739,19 @@ h1, h2 {
 @media (max-width: 768px) {
   .nav-links {
     position: fixed;
-    top: 80px;
+    top: 0px;
     right: -100%;
     width: 80%;
     max-width: 300px;
-    height: calc(100vh - 70px);
-    background: var(--bg-white);
+    /* height: calc(100vh - 70px); */
+    height: 100vh;
+    background: var(--bg-light);
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     padding-top: 2rem;
     transition: right 0.3s ease;
-    border-left: 1px solid var(--border-color);
+    /* border-left: 1px solid var(--border-color); */
     box-shadow: var(--shadow-lg);
     z-index: 1000;
     gap: 0;
