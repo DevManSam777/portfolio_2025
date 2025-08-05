@@ -386,7 +386,7 @@ function createFloatingIcon(startX, startY, size, imagePath) {
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
-        opacity: 0.4;
+        opacity: 0.2;
         pointer-events: none;
         z-index: 1;
         transition: all 3s ease-in-out;
