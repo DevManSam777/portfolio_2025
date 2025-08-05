@@ -182,7 +182,7 @@ html {
   background: none;
   border: none;
   font-size: 1.5rem;
-  color: var(--text-dark);
+  color: #3b82f6;
   cursor: pointer;
   z-index: 1001;
 }
