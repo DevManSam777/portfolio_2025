@@ -337,7 +337,7 @@ function handleWindowResize() {
 
 // Random icon movement with JavaScript - EACH ICON INDIVIDUALLY
 function initializeRandomIconMovement() {
-    console.log('Creating individual floating icons...');
+    // console.log('Creating individual floating icons...');
     
     // Remove the CSS pseudo-element backgrounds since we're creating real elements
     const style = document.createElement('style');
@@ -367,7 +367,7 @@ function initializeRandomIconMovement() {
         // Random image from the three options
         const randomImage = iconImages[Math.floor(Math.random() * iconImages.length)];
         
-        console.log(`Creating icon ${index + 1}: ${randomImage} at ${pos.x}%, ${pos.y}% with size ${randomSize}px`);
+        // console.log(`Creating icon ${index + 1}: ${randomImage} at ${pos.x}%, ${pos.y}% with size ${randomSize}px`);
         
         createFloatingIcon(pos.x, pos.y, randomSize, randomImage);
     });
@@ -394,9 +394,9 @@ function createFloatingIcon(startX, startY, size, imagePath) {
     
     // Add error handling for image loading
     const testImg = new Image();
-    testImg.onload = function() {
-        console.log(`✅ Successfully loaded: ${imagePath}`);
-    };
+    // testImg.onload = function() {
+    //     console.log(`✅ Successfully loaded: ${imagePath}`);
+    // };
     testImg.onerror = function() {
         console.error(`❌ Failed to load: ${imagePath}`);
     };
@@ -413,7 +413,7 @@ function createFloatingIcon(startX, startY, size, imagePath) {
         icon.style.transform = `translate(${randomX}px, ${randomY}px)`;
         icon.style.transitionDuration = `${duration}ms`;
         
-        console.log(`${imagePath} (${size}px) at ${startX}%, ${startY}% moving ${randomX}px, ${randomY}px over ${duration}ms`);
+        // console.log(`${imagePath} (${size}px) at ${startX}%, ${startY}% moving ${randomX}px, ${randomY}px over ${duration}ms`);
         
         // Schedule next movement
         setTimeout(moveThisIcon, duration + Math.random() * 2000);
@@ -446,7 +446,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize random icon movement
     initializeRandomIconMovement();
     
-    console.log('Portfolio site initialized successfully!');
+    // console.log('Portfolio site initialized successfully!');
 });
 
 document.addEventListener('visibilitychange', () => {
