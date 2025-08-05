@@ -335,6 +335,94 @@ function handleWindowResize() {
     });
 }
 
+// Random icon movement with JavaScript - EACH ICON INDIVIDUALLY
+function initializeRandomIconMovement() {
+    console.log('Creating individual floating icons...');
+    
+    // Remove the CSS pseudo-element backgrounds since we're creating real elements
+    const style = document.createElement('style');
+    style.textContent = `
+        body::before, body::after { display: none; }
+    `;
+    document.head.appendChild(style);
+    
+    // Create fewer individual icon elements with icon.png, cat.png, and pizza.png
+    const iconImages = ['assets/icon.png', 'assets/cat.png', 'assets/pizza.png'];
+    const iconPositions = [
+        {x: 20, y: 15},
+        {x: 60, y: 25}, 
+        {x: 30, y: 50},
+        {x: 75, y: 40},
+        {x: 45, y: 70},
+        {x: 15, y: 80},
+        {x: 85, y: 20},
+        {x: 50, y: 10},
+        {x: 25, y: 35},
+        {x: 70, y: 65}
+    ];
+    
+    iconPositions.forEach((pos, index) => {
+        // Random size between 50px and 120px (bigger for better visibility)
+        const randomSize = Math.floor(Math.random() * 71) + 50; // 50-120px
+        // Random image from the three options
+        const randomImage = iconImages[Math.floor(Math.random() * iconImages.length)];
+        
+        console.log(`Creating icon ${index + 1}: ${randomImage} at ${pos.x}%, ${pos.y}% with size ${randomSize}px`);
+        
+        createFloatingIcon(pos.x, pos.y, randomSize, randomImage);
+    });
+}
+
+function createFloatingIcon(startX, startY, size, imagePath) {
+    const icon = document.createElement('div');
+    icon.className = 'floating-icon';
+    icon.style.cssText = `
+        position: fixed;
+        left: ${startX}vw;
+        top: ${startY}vh;
+        width: ${size}px;
+        height: ${size}px;
+        background-image: url('${imagePath}');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        opacity: 0.4;
+        pointer-events: none;
+        z-index: 1;
+        transition: all 3s ease-in-out;
+    `;
+    
+    // Add error handling for image loading
+    const testImg = new Image();
+    testImg.onload = function() {
+        console.log(`✅ Successfully loaded: ${imagePath}`);
+    };
+    testImg.onerror = function() {
+        console.error(`❌ Failed to load: ${imagePath}`);
+    };
+    testImg.src = imagePath;
+    
+    document.body.appendChild(icon);
+    
+    // Make this specific icon move randomly
+    function moveThisIcon() {
+        const randomX = Math.random() * 200 - 100; // -100 to 100px from original
+        const randomY = Math.random() * 200 - 100; // -100 to 100px from original
+        const duration = Math.random() * 4000 + 2000; // 2-6 seconds
+        
+        icon.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        icon.style.transitionDuration = `${duration}ms`;
+        
+        console.log(`${imagePath} (${size}px) at ${startX}%, ${startY}% moving ${randomX}px, ${randomY}px over ${duration}ms`);
+        
+        // Schedule next movement
+        setTimeout(moveThisIcon, duration + Math.random() * 2000);
+    }
+    
+    // Start moving after a random delay
+    setTimeout(moveThisIcon, Math.random() * 3000);
+}
+
 // initialize everything
 document.addEventListener('DOMContentLoaded', () => {
     initializeTheme();
@@ -354,6 +442,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // set dynamic copyright year
     document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+    // Initialize random icon movement
+    initializeRandomIconMovement();
     
     console.log('Portfolio site initialized successfully!');
 });
