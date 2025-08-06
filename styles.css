@@ -832,6 +832,7 @@ h1, h2 {
   .about-content {
     grid-template-columns: 1fr;
     /* text-align: center; */
+    padding-inline: 2rem;
   }
 
   /* Added this after rm text-align center from .about-content above */
