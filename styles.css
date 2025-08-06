@@ -47,8 +47,6 @@ body {
   overflow-x: hidden;
 }
 
-/* COMMENTED OUT - Floating icon background animations */
-/*
 body::before {
   content: '';
   position: fixed;
@@ -101,7 +99,6 @@ body::after {
 [data-theme="dark"] body::after {
   opacity: 0.15;
 }
-*/
 
 html {
   scroll-behavior: smooth;
@@ -885,8 +882,6 @@ h1, h2 {
     gap: 0.5rem;
   }
 
-  /* COMMENTED OUT - Mobile background animations opacity */
-  /*
   body::before,
   body::after {
     opacity: 0.15;
@@ -896,7 +891,6 @@ h1, h2 {
   [data-theme="dark"] body::after {
     opacity: 0.08;
   }
-  */
 
   h1, h2 {
     background: linear-gradient(

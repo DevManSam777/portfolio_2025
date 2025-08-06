@@ -131,7 +131,6 @@ function closeMobileMenu() {
 }
 
 // blog functionality
-// blog functionality
 async function fetchHashnodePosts() {
     try {
         const response = await fetch('https://gql.hashnode.com/', {
@@ -336,8 +335,7 @@ function handleWindowResize() {
     });
 }
 
-// COMMENTED OUT - Random icon movement with JavaScript - EACH ICON INDIVIDUALLY
-/*
+// Random icon movement with JavaScript - EACH ICON INDIVIDUALLY
 function initializeRandomIconMovement() {
     // console.log('Creating individual floating icons...');
     
@@ -424,7 +422,6 @@ function createFloatingIcon(startX, startY, size, imagePath) {
     // Start moving after a random delay
     setTimeout(moveThisIcon, Math.random() * 3000);
 }
-*/
 
 // initialize everything
 document.addEventListener('DOMContentLoaded', () => {
@@ -446,8 +443,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // set dynamic copyright year
     document.getElementById('current-year').textContent = new Date().getFullYear();
     
-    // COMMENTED OUT - Initialize random icon movement
-    // initializeRandomIconMovement();
+    // Initialize random icon movement
+    initializeRandomIconMovement();
     
     // console.log('Portfolio site initialized successfully!');
 });
