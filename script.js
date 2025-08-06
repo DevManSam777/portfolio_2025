@@ -171,7 +171,6 @@ async function fetchHashnodePosts() {
         });
 
         const data = await response.json();
-        console.log('API Response:', data); // debug log
         
         if (data.errors) {
             console.error('GraphQL errors:', data.errors);
@@ -252,15 +251,15 @@ function initializeBlogCards() {
 // form event handlers
 function initializeFormEventHandlers() {
     document.addEventListener('form-submit', (event) => {
-        console.log('Contact form submitted:', event.detail);
+        
     });
 
     document.addEventListener('form-success', (event) => {
-        console.log('Contact form submission successful:', event.detail.message);
+        
     });
 
     document.addEventListener('form-error', (event) => {
-        console.error('Contact form error:', event.detail.error);
+        
     });
 }
 
@@ -337,39 +336,33 @@ function handleWindowResize() {
 
 // Random icon movement with JavaScript - EACH ICON INDIVIDUALLY
 function initializeRandomIconMovement() {
-    // console.log('Creating individual floating icons...');
-    
-    // Remove the CSS pseudo-element backgrounds since we're creating real elements
     const style = document.createElement('style');
     style.textContent = `
         body::before, body::after { display: none; }
     `;
     document.head.appendChild(style);
     
-    // Create fewer individual icon elements with icon.png, cat.png, and pizza.png
-    const iconImages = ['assets/icon.png', 'assets/cat.png', 'assets/pizza.png'];
     const iconPositions = [
-        {x: 20, y: 15},
-        {x: 60, y: 25}, 
-        {x: 30, y: 50},
-        {x: 75, y: 40},
-        {x: 45, y: 70},
-        {x: 15, y: 80},
-        {x: 85, y: 20},
-        {x: 50, y: 10},
-        {x: 25, y: 35},
-        {x: 70, y: 65}
+        {x: 20, y: 15}, {x: 60, y: 25}, {x: 30, y: 50}, {x: 75, y: 40}, {x: 45, y: 70},
+        {x: 15, y: 80}, {x: 85, y: 20}, {x: 50, y: 10}, {x: 25, y: 35}, {x: 70, y: 65}
     ];
     
+    const balancedImages = [
+        'assets/icon.png', 'assets/icon.png', 'assets/icon.png',
+        'assets/cat.png', 'assets/cat.png', 'assets/cat.png', 'assets/cat.png',
+        'assets/pizza.png', 'assets/pizza.png', 'assets/pizza.png'
+    ];
+    
+    for (let i = balancedImages.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [balancedImages[i], balancedImages[j]] = [balancedImages[j], balancedImages[i]];
+    }
+    
     iconPositions.forEach((pos, index) => {
-        // Random size between 50px and 120px (bigger for better visibility)
-        const randomSize = Math.floor(Math.random() * 71) + 50; // 50-120px
-        // Random image from the three options
-        const randomImage = iconImages[Math.floor(Math.random() * iconImages.length)];
+        const randomSize = Math.floor(Math.random() * 71) + 50;
+        const selectedImage = balancedImages[index];
         
-        // console.log(`Creating icon ${index + 1}: ${randomImage} at ${pos.x}%, ${pos.y}% with size ${randomSize}px`);
-        
-        createFloatingIcon(pos.x, pos.y, randomSize, randomImage);
+        createFloatingIcon(pos.x, pos.y, randomSize, selectedImage);
     });
 }
 
@@ -394,11 +387,8 @@ function createFloatingIcon(startX, startY, size, imagePath) {
     
     // Add error handling for image loading
     const testImg = new Image();
-    // testImg.onload = function() {
-    //     console.log(`✅ Successfully loaded: ${imagePath}`);
-    // };
     testImg.onerror = function() {
-        console.error(`❌ Failed to load: ${imagePath}`);
+        
     };
     testImg.src = imagePath;
     
@@ -412,8 +402,6 @@ function createFloatingIcon(startX, startY, size, imagePath) {
         
         icon.style.transform = `translate(${randomX}px, ${randomY}px)`;
         icon.style.transitionDuration = `${duration}ms`;
-        
-        // console.log(`${imagePath} (${size}px) at ${startX}%, ${startY}% moving ${randomX}px, ${randomY}px over ${duration}ms`);
         
         // Schedule next movement
         setTimeout(moveThisIcon, duration + Math.random() * 2000);
@@ -445,14 +433,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize random icon movement
     initializeRandomIconMovement();
-    
-    // console.log('Portfolio site initialized successfully!');
 });
 
 document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
-        console.log('Page hidden');
+        
     } else {
-        console.log('Page visible');
+        
     }
 });
