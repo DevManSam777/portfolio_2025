@@ -369,12 +369,24 @@ function initializeRandomIconMovement() {
 function createFloatingIcon(startX, startY, size, imagePath) {
     const icon = document.createElement('div');
     icon.className = 'floating-icon';
+    
+    // Function to calculate size based on screen width
+    function getIconSize() {
+        if (window.innerWidth <= 480) {
+            return Math.max(30, Math.floor(size * 0.6)); // 40% smaller, but minimum 30px
+        }
+        return size;
+    }
+    
+    // Set initial size
+    let currentSize = getIconSize();
+    
     icon.style.cssText = `
         position: fixed;
         left: ${startX}vw;
         top: ${startY}vh;
-        width: ${size}px;
-        height: ${size}px;
+        width: ${currentSize}px;
+        height: ${currentSize}px;
         background-image: url('${imagePath}');
         background-size: contain;
         background-repeat: no-repeat;
@@ -388,11 +400,23 @@ function createFloatingIcon(startX, startY, size, imagePath) {
     // Add error handling for image loading
     const testImg = new Image();
     testImg.onerror = function() {
-        
+        // Handle error silently
     };
     testImg.src = imagePath;
     
     document.body.appendChild(icon);
+    
+    // Resize handler that only updates size, not movement
+    const handleResize = () => {
+        const newSize = getIconSize();
+        if (newSize !== currentSize) {
+            icon.style.width = `${newSize}px`;
+            icon.style.height = `${newSize}px`;
+            currentSize = newSize;
+        }
+    };
+    
+    window.addEventListener('resize', handleResize);
     
     // Make this specific icon move randomly
     function moveThisIcon() {
