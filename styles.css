@@ -325,7 +325,6 @@ h1, h2 {
 
 .about {
   background: rgba(250, 250, 250, 0.3);
-  /* height:100vh; */
 }
 
 [data-theme="dark"] .about {
@@ -455,8 +454,8 @@ h1, h2 {
 }
 
 .project-image {
-  height: 200px;
   width: 100%;
+  aspect-ratio: 16 / 9;
   background: linear-gradient(
     135deg,
     var(--primary-color),
@@ -467,6 +466,14 @@ h1, h2 {
   justify-content: center;
   color: white;
   font-size: 3rem;
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
 }
 
 .project-content {
@@ -831,14 +838,12 @@ h1, h2 {
 
   .about-content {
     grid-template-columns: 1fr;
-    /* text-align: center; */
   }
 
   .about .section-title p, .about-content {
     padding-inline: 1.2rem;
   }
 
-  /* Added this after rm text-align center from .about-content above */
   .about-content h3 {
     text-align: center;
   }
