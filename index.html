@@ -119,13 +119,13 @@
           <li><a href="#blog">Blog</a></li>
           <li><a href="#contact">Contact</a></li>
           <li>
-            <button class="theme-toggle" onclick="toggleTheme()">
-              <i class="fas fa-moon" id="theme-icon"></i>
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle between light and dark theme">
+              <i class="fas fa-moon" id="theme-icon" aria-hidden="true"></i>
             </button>
           </li>
         </ul>
-        <button class="mobile-menu-btn">
-          <i class="fas fa-bars"></i>
+        <button class="mobile-menu-btn" aria-label="Open mobile navigation menu" aria-expanded="false">
+          <i class="fas fa-bars" aria-hidden="true"></i>
         </button>
       </nav>
     </header>
@@ -144,11 +144,11 @@
           </p>
           <div class="cta-buttons">
             <a href="#projects" class="btn btn-primary">
-              <i class="fas fa-code"></i>
+              <i class="fas fa-code" aria-hidden="true"></i>
               Recent Projects
             </a>
-            <a href="https://cal.com/devmansam/consultation" class="btn btn-outline" target="_blank">
-              <i class="fas fa-calendar"></i>
+            <a href="https://cal.com/devmansam/consultation" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+              <i class="fas fa-calendar" aria-hidden="true"></i>
               Free Consultation
             </a>
           </div>
@@ -197,7 +197,7 @@
             </p>
             <p>
               If you would like to show your support, please consider donating to the United Nations Relief and Works Agency for Palestinian Refugees
-              <a href="https://www.unrwa.org/" target="_blank" class="unrwa">unrwa.org</a>.
+              <a href="https://www.unrwa.org/" target="_blank" rel="noopener noreferrer" class="unrwa">unrwa.org</a>.
             </p>
           </div>
         </div>
@@ -214,7 +214,7 @@
         </div>
         <div class="skills-grid">
           <div class="skill-category">
-            <h3><i class="fas fa-code"></i> Frontend</h3>
+            <h3><i class="fas fa-code" aria-hidden="true"></i> Frontend</h3>
             <ul class="skill-list">
               <li>HTML5</li>
               <li>CSS3</li>
@@ -226,7 +226,7 @@
             </ul>
           </div>
           <div class="skill-category">
-            <h3><i class="fas fa-server"></i> Backend</h3>
+            <h3><i class="fas fa-server" aria-hidden="true"></i> Backend</h3>
             <ul class="skill-list">
               <li>Node.js</li>
               <li>Express</li>
@@ -237,7 +237,7 @@
             </ul>
           </div>
           <div class="skill-category">
-            <h3><i class="fas fa-tools"></i> DevOps & Tools</h3>
+            <h3><i class="fas fa-tools" aria-hidden="true"></i> DevOps & Tools</h3>
             <ul class="skill-list">
               <li>Docker</li>
               <li>Linux</li>
@@ -286,14 +286,16 @@
                 <span class="tech-tag">Chart.js</span>
               </div>
               <div class="project-links">
-                <a href="https://devleads.site" target="_blank">
-                  <i class="fas fa-external-link-alt"></i> Live Demo
+                <a href="https://devleads.site" target="_blank" rel="noopener noreferrer" aria-label="View DevLeads live demo">
+                  <i class="fas fa-external-link-alt" aria-hidden="true"></i> Live Demo
                 </a>
                 <a
                   href="https://github.com/DevManSam777/lead-management"
                   target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View DevLeads source code on GitHub"
                 >
-                  <i class="fab fa-github"></i> GitHub
+                  <i class="fab fa-github" aria-hidden="true"></i> GitHub
                 </a>
               </div>
             </div>
@@ -323,14 +325,16 @@
                 <span class="tech-tag">Firebase</span>
               </div>
               <div class="project-links">
-                <a href="https://yp-scraper.onrender.com/login" target="_blank">
-                  <i class="fas fa-external-link-alt"></i> Live Demo
+                <a href="https://yp-scraper.onrender.com/login" target="_blank" rel="noopener noreferrer" aria-label="View YP Scraper live demo">
+                  <i class="fas fa-external-link-alt" aria-hidden="true"></i> Live Demo
                 </a>
                 <a
                   href="https://github.com/DevManSam777/yp_scraper"
                   target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View YP Scraper source code on GitHub"
                 >
-                  <i class="fab fa-github"></i> GitHub
+                  <i class="fab fa-github" aria-hidden="true"></i> GitHub
                 </a>
               </div>
             </div>
@@ -361,14 +365,16 @@
                 <span class="tech-tag">MongoDB</span>
               </div>
               <div class="project-links">
-                <a href="https://proshop-v2-7zkj.onrender.com/" target="_blank">
-                  <i class="fas fa-external-link-alt"></i> Live Demo
+                <a href="https://proshop-v2-7zkj.onrender.com/" target="_blank" rel="noopener noreferrer" aria-label="View ProShop live demo">
+                  <i class="fas fa-external-link-alt" aria-hidden="true"></i> Live Demo
                 </a>
                 <a
                   href="https://github.com/DevManSam777/proshop-v2"
                   target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View ProShop source code on GitHub"
                 >
-                  <i class="fab fa-github"></i> GitHub
+                  <i class="fab fa-github" aria-hidden="true"></i> GitHub
                 </a>
               </div>
             </div>
@@ -404,9 +410,11 @@
           <a
             href="https://blog.devmansam.net"
             target="_blank"
+            rel="noopener noreferrer"
             class="btn btn-primary"
+            aria-label="View all blog posts"
           >
-            <i class="fas fa-external-link-alt"></i>
+            <i class="fas fa-external-link-alt" aria-hidden="true"></i>
             View All Posts
           </a>
         </div>
@@ -500,33 +508,35 @@
             </p>
           </div>
           <div class="social-links">
-            <a href="mailto:sam@devmansam.net" title="Email"
-            >
-              <i class="fas fa-envelope"></i>
+            <a href="mailto:sam@devmansam.net" aria-label="Send email to Samir">
+              <i class="fas fa-envelope" aria-hidden="true"></i>
             </a>
             <a
               href="https://github.com/devmansam777"
               target="_blank"
-              title="GitHub"
+              rel="noopener noreferrer"
+              aria-label="Visit GitHub profile"
             >
-              <i class="fab fa-github"></i>
+              <i class="fab fa-github" aria-hidden="true"></i>
             </a>
             <a
               href="https://linkedin.com/in/samir-shuman-48a18a331/"
               target="_blank"
-              title="LinkedIn"
+              rel="noopener noreferrer"
+              aria-label="Visit LinkedIn profile"
             >
-              <i class="fab fa-linkedin"></i>
+              <i class="fab fa-linkedin" aria-hidden="true"></i>
             </a>
-            <a href="https://x.com/DevManSam" target="_blank" title="Twitter">
-              <i class="fab fa-twitter"></i>
+            <a href="https://x.com/DevManSam" target="_blank" rel="noopener noreferrer" aria-label="Visit Twitter profile">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
             </a>
             <a
               href="https://bsky.app/profile/devmansam.net"
               target="_blank"
-              title="Bluesky"
+              rel="noopener noreferrer"
+              aria-label="Visit Bluesky profile"
             >
-              <i class="fa-brands fa-bluesky"></i>
+              <i class="fa-brands fa-bluesky" aria-hidden="true"></i>
             </a>
           </div>
         </div>
