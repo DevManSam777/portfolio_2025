@@ -334,7 +334,6 @@ function handleWindowResize() {
     });
 }
 
-// Random icon movement with JavaScript - EACH ICON INDIVIDUALLY
 function initializeRandomIconMovement() {
     const style = document.createElement('style');
     style.textContent = `
@@ -348,11 +347,12 @@ function initializeRandomIconMovement() {
     ];
     
     const balancedImages = [
-        'assets/icon.png', 'assets/icon.png', 'assets/icon.png',
-        'assets/cat.png', 'assets/cat.png', 'assets/cat.png', 'assets/cat.png',
-        'assets/pizza.png', 'assets/pizza.png', 'assets/pizza.png'
+        'assets/icon.png', 'assets/cat.png', 'assets/pizza.png',
+        'assets/cat.png', 'assets/icon.png', 'assets/pizza.png', 'assets/cat.png',
+        'assets/pizza.png', 'assets/cat.png', 'assets/icon.png'
     ];
     
+    // Shuffle the images array
     for (let i = balancedImages.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [balancedImages[i], balancedImages[j]] = [balancedImages[j], balancedImages[i]];
@@ -364,6 +364,82 @@ function initializeRandomIconMovement() {
         
         createFloatingIcon(pos.x, pos.y, randomSize, selectedImage);
     });
+}
+
+function createFloatingIcon(startX, startY, size, imagePath) {
+    function getIconSize() {
+        if (window.innerWidth <= 480) {
+            return Math.max(30, Math.floor(size * 0.6));
+        }
+        return size;
+    }
+    
+    let currentSize = getIconSize();
+    
+    // Create container div
+    const container = document.createElement('div');
+    container.style.cssText = `
+        position: fixed;
+        left: ${startX}vw;
+        top: ${startY}vh;
+        width: ${currentSize}px;
+        height: ${currentSize}px;
+        opacity: 0;
+        pointer-events: none;
+        z-index: 1;
+        transition: all 3s ease-in-out;
+    `;
+    
+    // Create actual img element
+    const img = document.createElement('img');
+    img.src = imagePath;
+    img.style.cssText = `
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        opacity: 0.1;
+    `;
+    
+    // Only show when image loads
+    img.onload = function() {
+        container.style.opacity = '1';
+        setTimeout(() => startMovement(container), Math.random() * 3000);
+    };
+    
+    img.onerror = function() {
+        // Hide this icon if image fails to load
+        container.style.display = 'none';
+    };
+    
+    container.appendChild(img);
+    document.body.appendChild(container);
+    
+    // Resize handler
+    const handleResize = () => {
+        const newSize = getIconSize();
+        if (newSize !== currentSize) {
+            container.style.width = `${newSize}px`;
+            container.style.height = `${newSize}px`;
+            currentSize = newSize;
+        }
+    };
+    
+    window.addEventListener('resize', handleResize);
+}
+
+function startMovement(container) {
+    function moveIcon() {
+        const randomX = Math.random() * 200 - 100;
+        const randomY = Math.random() * 200 - 100;
+        const duration = Math.random() * 4000 + 2000;
+        
+        container.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        container.style.transitionDuration = `${duration}ms`;
+        
+        setTimeout(moveIcon, duration + Math.random() * 2000);
+    }
+    
+    moveIcon();
 }
 
 function createFloatingIcon(startX, startY, size, imagePath) {
