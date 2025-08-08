@@ -15,8 +15,10 @@
     <link rel="canonical" href="https://devmansam.net" />
 
     <!-- Favicon -->
-    <link rel="icon" href="assets/code_icon.avif" />
-    <link rel="apple-touch-icon" href="assets/code_icon.avif" />
+    <link rel="icon" href="assets/code_icon.avif" type="image/avif" />
+    <link rel="icon" href="assets/code_icon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/code_icon.avif" type="image/avif" />
+    <link rel="apple-touch-icon" href="assets/code_icon.png" type="image/png" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -102,7 +104,12 @@
     <header class="header">
       <nav class="nav">
         <div class>
-          <a href="#home"><img src="assets/code_icon.avif" alt="icon" class="icon" loading="lazy"></a>
+          <a href="#home">
+            <picture>
+              <source srcset="assets/code_icon.avif" type="image/avif">
+              <img src="assets/code_icon.png" alt="icon" class="icon" loading="lazy">
+            </picture>
+          </a>
           <!-- <p class="logo">Welcome!</p> -->
           <!-- <typewriter-effect
             class="logo"
@@ -169,12 +176,15 @@
         <div class="about-content">
           <div class="about-image">
             <div class="placeholder">
-              <img
-                class="placeholder"
-                src="/assets/sam-yellow-shirt.avif"
-                alt="Samir"
-                loading="lazy"
-              />
+              <picture>
+                <source srcset="/assets/sam-yellow-shirt.avif" type="image/avif">
+                  <img 
+                    class="placeholder" 
+                    src="/assets/sam-yellow-shirt.png" 
+                    alt="Samir" 
+                    loading="lazy"
+                  />
+                </picture>
             </div>
           </div>
           <div class="about-text">
@@ -259,12 +269,15 @@
         </div>
         <div class="projects-grid">
           <div class="project-card">
-            <img
-              src="/assets/devleads.avifs"
-              alt="devleads"
-              class="project-image"
-              loading="lazy"
-            />
+            <picture>
+              <source srcset="/assets/devleads.avifs" type="image/avif">
+              <img 
+                src="/assets/devleads.gif" 
+                alt="devleads" 
+                class="project-image" 
+                loading="lazy"
+              />
+            </picture>
             <!-- <div class="project-image">
               <i class="fas fa-chart-line"></i>
             </div> -->
@@ -302,12 +315,15 @@
           </div>
 
           <div class="project-card">
-            <img
-              src="/assets/yp_scraper.avifs"
-              alt="yp scraper"
-              class="project-image"
-              loading="lazy"
-            />
+            <picture>
+              <source srcset="/assets/yp_scraper.avifs" type="image/avif">
+              <img 
+                src="/assets/yp_scraper.gif" 
+                alt="yp scraper" 
+                class="project-image" 
+                loading="lazy"
+              />
+            </picture>
             <div class="project-content">
               <h3>YP Scraper</h3>
               <p>
@@ -341,12 +357,15 @@
           </div>
 
           <div class="project-card">
-            <img
-              src="/assets/proshop.avifs"
-              alt="ProShop"
-              class="project-image"
-              loading="lazy"
-            />
+            <picture>
+              <source srcset="/assets/proshop.avifs" type="image/avif">
+              <img 
+                src="/assets/proshop.gif" 
+                alt="ProShop" 
+                class="project-image" 
+                loading="lazy"
+              />
+            </picture>
             <div class="project-content">
               <h3>ProShop</h3>
               <p>
