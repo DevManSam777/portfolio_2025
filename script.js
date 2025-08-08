@@ -207,7 +207,7 @@ function renderBlogPosts(posts) {
             <a href="${post.url}" target="_blank" class="blog-card">
                 <div class="blog-image">
                     ${post.coverImage?.url ? 
-                        `<img src="${post.coverImage.url}" alt="${post.title}" />` :
+                        `<img src="${post.coverImage.url}" alt="${post.title}" loading="lazy"/>` :
                         '<i class="fas fa-code"></i>'
                     }
                 </div>
