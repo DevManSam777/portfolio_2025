@@ -101,11 +101,12 @@ html {
   backdrop-filter: blur(10px);
   z-index: 1000;
   transition: all 0.3s ease;
+  background: transparent;
 }
 
-[data-theme="dark"] .header {
+/* [data-theme="dark"] .header {
   background: rgba(31, 41, 55, 0.3);
-}
+} */
 
 .nav {
   display: flex;

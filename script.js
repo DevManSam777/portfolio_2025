@@ -347,9 +347,9 @@ function initializeRandomIconMovement() {
     ];
     
     const balancedImages = [
-        'assets/icon.png', 'assets/cat.png', 'assets/pizza.png',
-        'assets/cat.png', 'assets/icon.png', 'assets/pizza.png', 'assets/cat.png',
-        'assets/pizza.png', 'assets/cat.png', 'assets/icon.png'
+        'assets/icon.avif', 'assets/cat.avif', 'assets/pizza.avif',
+        'assets/cat.avif', 'assets/icon.avif', 'assets/pizza.avif', 'assets/cat.avif',
+        'assets/pizza.avif', 'assets/cat.avif', 'assets/icon.avif'
     ];
     
     // Shuffle the images array
