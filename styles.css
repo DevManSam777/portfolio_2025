@@ -5,7 +5,6 @@
 }
 
 :root {
-  /* Light theme colors */
   --primary-color: #2563eb;
   --secondary-color: #1e40af;
   --accent-color: #f59e0b;
@@ -21,7 +20,6 @@
 }
 
 [data-theme="dark"] {
-  /* Dark theme colors */
   --primary-color: #3b82f6;
   --secondary-color: #2563eb;
   --accent-color: #fbbf24;
@@ -104,10 +102,6 @@ html {
   background: transparent;
 }
 
-/* [data-theme="dark"] .header {
-  background: rgba(31, 41, 55, 0.3);
-} */
-
 .nav {
   display: flex;
   justify-content: space-between;
@@ -135,9 +129,35 @@ html {
   color: var(--text-light);
   font-weight: 500;
   transition: color 0.3s ease;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
 }
 
 .nav-links a:hover {
+  color: var(--primary-color);
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-links a.active {
   color: var(--primary-color);
 }
 
@@ -191,14 +211,13 @@ html {
   display: block;
 }
 
-/* Updated Hero Section with Landscape Fix */
 .hero {
   padding: 8rem 0 4rem;
   text-align: center;
   background: transparent;
   position: relative;
   min-height: 100vh;
-  min-height: 100dvh; /* Fallback for browsers that support it */
+  min-height: 100dvh;
   display: flex;
   align-items: center;
 }
@@ -723,7 +742,6 @@ h1, h2 {
   animation: fadeInUp 0.8s ease forwards;
 }
 
-/* Tablet landscape */
 @media screen and (min-width: 768px) and (max-height: 600px) and (orientation: landscape) {
   .hero {
     min-height: calc(100vh - 2rem);
@@ -731,7 +749,6 @@ h1, h2 {
   }
 }
 
-/* Mobile landscape */
 @media screen and (max-width: 767px) and (max-height: 500px) and (orientation: landscape) {
   .hero {
     min-height: calc(100vh + 40px);
