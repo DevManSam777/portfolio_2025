@@ -799,6 +799,7 @@ h2 {
   }
 
   .nav-links a:hover {
+     color: #2563eb;
     transition: all 0.3s ease-in-out;
   }
 
@@ -826,12 +827,13 @@ h2 {
     transition: background-color 0.3s ease;
   }
 
-  /* .nav-links a:hover {
-    background: var(--bg-light);
-  } */
 
   .theme-toggle {
     margin: 0 auto;
+  }
+
+  .theme-toggle:hover {
+    border-color:  #2563eb;
   }
 
   .mobile-menu-btn {
