@@ -150,7 +150,7 @@ html {
 }
 
 .nav-links a:hover {
-  color: var(--primary-color);
+  color: var(--accent-color);
 }
 
 .nav-links a.active::after {
@@ -177,7 +177,7 @@ html {
 
 .theme-toggle:hover {
   border-color: var(--primary-color);
-  color: var(--primary-color);
+  color: var(--accent-color);
   transform: scale(1.1);
 }
 
