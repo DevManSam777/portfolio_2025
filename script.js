@@ -530,37 +530,6 @@ function createFloatingIcon(startX, startY, size, imagePath) {
   setTimeout(moveThisIcon, Math.random() * 3000);
 }
 
-// Back to top functionality
-function initializeBackToTop() {
-  const backToTopButton = document.getElementById("back-to-top");
-
-  if (!backToTopButton) return;
-
-  // Show/hide button based on scroll position
-  function toggleBackToTop() {
-    if (window.pageYOffset > 300) {
-      backToTopButton.classList.add("show");
-    } else {
-      backToTopButton.classList.remove("show");
-    }
-  }
-
-  // Smooth scroll to top
-  function scrollToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  }
-
-  // Event listeners
-  window.addEventListener("scroll", toggleBackToTop);
-  backToTopButton.addEventListener("click", scrollToTop);
-
-  // Initialize on page load
-  toggleBackToTop();
-}
-
 // initialize everything
 document.addEventListener("DOMContentLoaded", () => {
   initializeTheme();
@@ -584,9 +553,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize random icon movement
   initializeRandomIconMovement();
-
-  // Initialize back to top button
-  initializeBackToTop();
 });
 
 document.addEventListener("visibilitychange", () => {
